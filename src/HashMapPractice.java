@@ -12,6 +12,13 @@ public class HashMapPractice {
     @SuppressWarnings("javadoc")
     public static void main(String[] args) {
 	HashMap<Integer,String> intsToStrings = new HashMap<Integer,String>();
+	intsToStrings.put(42,"Marty");
+	intsToStrings.put(81, "Sue");
+	intsToStrings.put(17, "Ed");
+	intsToStrings.put(31, "Dave");
+	intsToStrings.put(56, "Ed");
+	intsToStrings.put(3, "Marty");
+	intsToStrings.put(29, "Ed");
 	
 //	HashMap<String, Integer> hm1 = new HashMap<>();
 //	System.out.println("Current Mappings: " + hm1.toString());
@@ -27,7 +34,7 @@ public class HashMapPractice {
 //	System.out.println("hm2: " + hm2.toString());
 	
 	HashMapPractice hmp = new HashMapPractice();
-	hmp.reverse(intsToStrings);
+	System.out.println("reverse --> " + hmp.reverse(intsToStrings));
     }
     
     /**
@@ -37,8 +44,11 @@ public class HashMapPractice {
      */
     public HashMap<String,Integer> reverse(HashMap<Integer,String> intsToStrings){
 	HashMap<String,Integer> stringsToInts = new HashMap<String,Integer>();
-	
-	
+	System.out.println("forwards");
+	for(Map.Entry<Integer, String> mapping : intsToStrings.entrySet()) {
+	    System.out.println(mapping.getKey() + " = " + mapping.getValue());
+	    stringsToInts.put(mapping.getValue(), mapping.getKey());
+	}
 	return stringsToInts;
     }
 }
